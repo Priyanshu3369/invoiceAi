@@ -28,9 +28,9 @@ export function Navbar() {
           </div>
           <div className="flex items-baseline gap-0.5">
             <span className="text-lg font-semibold tracking-tight text-foreground">
-              SmartInvoice
+              Invoice
             </span>
-            <span className="text-xs font-medium text-muted-foreground">AI</span>
+            <span className="text-xs font-medium text-muted-foreground">IQ</span>
           </div>
         </Link>
 

@@ -34,22 +34,24 @@ const saveInvoices = (invoices: Invoice[]): void => {
 export function useInvoices() {
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   // Load invoices on mount
   useEffect(() => {
     const loaded = loadInvoices();
     setInvoices(loaded);
     setIsLoading(false);
+    setHasLoaded(true);
   }, []);
 
-  // Save whenever invoices change
+  // Save whenever invoices change (only after initial load)
   useEffect(() => {
-    if (!isLoading) {
+    if (hasLoaded) {
       saveInvoices(invoices);
     }
-  }, [invoices, isLoading]);
+  }, [invoices, hasLoaded]);
 
-  // Add a new invoice
+  // Add a new invoice - reads fresh from storage and saves immediately
   const addInvoice = useCallback((invoice: Omit<Invoice, 'id' | 'invoiceNumber' | 'createdAt' | 'updatedAt'>) => {
     const now = new Date().toISOString();
     const newInvoice: Invoice = {
@@ -59,7 +61,13 @@ export function useInvoices() {
       createdAt: now,
       updatedAt: now,
     };
-    setInvoices(prev => [newInvoice, ...prev]);
+    
+    // Read fresh from storage, add new invoice, and save immediately
+    const currentInvoices = loadInvoices();
+    const updatedInvoices = [newInvoice, ...currentInvoices];
+    saveInvoices(updatedInvoices);
+    setInvoices(updatedInvoices);
+    
     return newInvoice;
   }, []);
 

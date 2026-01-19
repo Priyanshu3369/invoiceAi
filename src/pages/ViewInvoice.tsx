@@ -44,11 +44,23 @@ const getStatusColor = (status: Invoice['status']) => {
 const ViewInvoice = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { getInvoice, updateInvoice, deleteInvoice } = useInvoices();
+  const { getInvoice, updateInvoice, deleteInvoice, isLoading } = useInvoices();
   const invoiceRef = useRef<HTMLDivElement>(null);
   const [isExporting, setIsExporting] = useState(false);
 
   const invoice = id ? getInvoice(id) : undefined;
+
+  // Show loading state while invoices are being loaded
+  if (isLoading) {
+    return (
+      <Layout>
+        <div className="container flex flex-col items-center justify-center py-20 text-center">
+          <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+          <p className="mt-4 text-muted-foreground">Loading invoice...</p>
+        </div>
+      </Layout>
+    );
+  }
 
   if (!invoice) {
     return (

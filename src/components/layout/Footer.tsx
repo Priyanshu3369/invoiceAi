@@ -38,9 +38,9 @@ export function Footer() {
               </div>
               <div className="flex items-baseline gap-0.5">
                 <span className="text-lg font-semibold tracking-tight">
-                  SmartInvoice
+                  Invoice
                 </span>
-                <span className="text-xs font-medium text-muted-foreground">AI</span>
+                <span className="text-xs font-medium text-muted-foreground">IQ</span>
               </div>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-muted-foreground leading-relaxed">
