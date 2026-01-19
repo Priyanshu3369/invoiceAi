@@ -40,23 +40,23 @@ const Index = () => {
       <div className="container py-8 lg:py-12">
         {/* Hero Section */}
         <section className="mb-12 lg:mb-16">
-          <div className="relative overflow-hidden rounded-2xl bg-primary p-8 sm:p-10 lg:p-14">
+          <div className="relative overflow-hidden rounded-2xl bg-secondary border border-border p-8 sm:p-10 lg:p-14">
             {/* Subtle background pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary-foreground blur-3xl" />
-              <div className="absolute bottom-0 left-0 h-48 w-48 -translate-x-1/2 translate-y-1/2 rounded-full bg-primary-foreground blur-3xl" />
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary blur-3xl" />
+              <div className="absolute bottom-0 left-0 h-48 w-48 -translate-x-1/2 translate-y-1/2 rounded-full bg-primary blur-3xl" />
             </div>
 
             <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-xl">
-                <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3.5 py-1.5 text-sm font-medium text-primary-foreground">
+                <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3.5 py-1.5 text-sm font-medium text-primary">
                   <Sparkles className="h-3.5 w-3.5" />
                   <span>AI-Powered Invoicing</span>
                 </div>
-                <h1 className="mb-4 text-3xl font-semibold tracking-tight text-primary-foreground text-balance sm:text-4xl lg:text-5xl">
+                <h1 className="mb-4 text-3xl font-semibold tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl">
                   Create Professional Invoices in Seconds
                 </h1>
-                <p className="text-base text-primary-foreground/80 leading-relaxed lg:text-lg">
+                <p className="text-base text-muted-foreground leading-relaxed lg:text-lg">
                   Just describe your invoice in natural language. Our AI handles the rest—items, tax, discounts, and more.
                 </p>
               </div>
@@ -65,7 +65,7 @@ const Index = () => {
                 <Link to="/create">
                   <Button
                     size="lg"
-                    className="w-full gap-2 bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-medium shadow-lg"
+                    className="w-full gap-2 font-medium shadow-lg"
                   >
                     <Plus className="h-4 w-4" />
                     Create Invoice
@@ -76,7 +76,7 @@ const Index = () => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full gap-2 border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 font-medium"
+                    className="w-full gap-2 font-medium"
                   >
                     <Sparkles className="h-4 w-4" />
                     Try AI Assistant

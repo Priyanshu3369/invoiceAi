@@ -19,13 +19,15 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="flex items-center gap-2.5 transition-opacity hover:opacity-80"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-            <FileText className="h-4 w-4 text-primary-foreground" />
-          </div>
+          <img
+            src="/logo.svg"
+            alt="InvoiceIQ Logo"
+            className="h-8 w-8 object-contain"
+          />
           <div className="flex items-baseline gap-0.5">
             <span className="text-lg font-semibold tracking-tight text-foreground">
               Invoice
@@ -33,13 +35,12 @@ export function Navbar() {
             <span className="text-xs font-medium text-muted-foreground">IQ</span>
           </div>
         </Link>
-
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-1 md:flex">
           {navItems.map(item => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
-            
+
             return (
               <Link key={item.path} to={item.path}>
                 <Button
@@ -47,8 +48,8 @@ export function Navbar() {
                   size="sm"
                   className={cn(
                     'gap-2 font-medium transition-colors',
-                    isActive 
-                      ? 'bg-secondary text-foreground' 
+                    isActive
+                      ? 'bg-secondary text-foreground'
                       : 'text-muted-foreground hover:text-foreground hover:bg-secondary/60'
                   )}
                 >
@@ -102,10 +103,10 @@ export function Navbar() {
               {navItems.map(item => {
                 const Icon = item.icon;
                 const isActive = location.pathname === item.path;
-                
+
                 return (
-                  <Link 
-                    key={item.path} 
+                  <Link
+                    key={item.path}
                     to={item.path}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -113,8 +114,8 @@ export function Navbar() {
                       variant="ghost"
                       className={cn(
                         'w-full justify-start gap-3 font-medium',
-                        isActive 
-                          ? 'bg-secondary text-foreground' 
+                        isActive
+                          ? 'bg-secondary text-foreground'
                           : 'text-muted-foreground hover:text-foreground'
                       )}
                     >
