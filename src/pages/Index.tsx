@@ -57,7 +57,7 @@ const Index = () => {
                   Create Professional Invoices in Seconds
                 </h1>
                 <p className="text-base text-muted-foreground leading-relaxed lg:text-lg">
-                  Just describe your invoice in natural language. Our AI handles the rest—items, tax, discounts, and more.
+                  Just describe your invoice in natural language. Our AI handles the rest-items, tax, discounts, and more.
                 </p>
               </div>
 
